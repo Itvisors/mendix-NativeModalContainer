@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget id="itvisors.nativemodalcontainer.NativeModalContainer" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
+        supportedPlatform="Native"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Native Modal Container</name>
+    <description>Mendix native modal container</description>
+    <icon>iVBORw0KGgoAAAANSUhEUgAAAEEAAABBCAYAAACO98lFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADzSURBVHhe7dixDcIwFABRhzYLMAIda7AUFUuxBh0jsAC1OSSHhkBsiJTIvichEBIFpy/7QxdjDK3bpOemGQFGwOiZsNseqj0orrdzl16+OAkwAqqL8Bz34ZHemuQkwAjwdoCTACPACMg+E0qunLXI/R5OAowAI8AIMAJ+vh1Ol/v7B2d03Pd/30beDgWMACPAjRFOAowAI8AIWO2y9E3uIuXBWMAIMAJcluAkwAgwAoyAxZalOf45muLBWMAIMAJcluAkwAgwAowAI8AIMAKMACPACDACjIDsH1C18AfUB0aAEWAEjB6MrXESYAQYAUYIITwAgf17vvpfPLIAAAAASUVORK5CYII=
+    </icon>
+    <properties>
+        <propertyGroup caption="General">
+            <property key="modalVisible" type="expression">
+                <caption>Modal visible</caption>
+                <description></description>
+                <returnType type="Boolean" />
+            </property>
+            <property key="content" type="widgets">
+                <caption>Content</caption>
+                <description></description>
+            </property>
+        </propertyGroup>
+    </properties>
+</widget>

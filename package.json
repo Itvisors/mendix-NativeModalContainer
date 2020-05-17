@@ -1,0 +1,30 @@
+{
+  "name": "nativemodalcontainer",
+  "widgetName": "NativeModalContainer",
+  "version": "1.0.0",
+  "description": "Mendix native modal container",
+  "copyright": "ITvisors 2020",
+  "author": "Marcel Groeneweg",
+  "config": {
+    "widgetPath": "./test/widgets",
+    "projectPath": "./test/"
+  },
+  "packagePath": "itvisors",
+  "scripts": {
+    "start": "npm run dev",
+    "build": "pluggable-widgets-tools build:js:native",
+    "dev": "pluggable-widgets-tools start:js:native",
+    "lint": "pluggable-widgets-tools lint",
+    "lint:fix": "pluggable-widgets-tools lint:fix",
+    "prerelease": "npm run lint",
+    "release": "pluggable-widgets-tools release:js:native"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Marcel Groeneweg/nativemodalcontainer/issues"
+  },
+  "devDependencies": {
+    "@mendix/pluggable-widgets-tools": "^8.9.2"
+  },
+  "dependencies": {}
+}
