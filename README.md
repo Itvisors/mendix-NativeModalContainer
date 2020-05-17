@@ -6,6 +6,11 @@ Show modal content, full page or with partial transparency
 - Uses boolean trigger attribute to show/hide modal
 - Can be used to create transparent/translucent effects
 
+## Use cases
+- Show content where user should not be allowed to back out. Also Android back button has no effect
+- Show content over current page
+- Emulate hamburger menu 
+
 ## Usage
 - Define a boolean attribute (referred to as _ShowModal_ from here) on the context object to show/hide the modal.
 - Place the widget on the page.
