@@ -26,7 +26,7 @@ export class NativeModalContainer extends Component {
 
     handler = newDimensions => {
         // console.info(
-        //     "NativeImageViewer dimension change handler, new width: " +
+        //     "NativeModalContainer dimension change handler, new width: " +
         //         newDimensions.window.width +
         //         ", height: " +
         //         newDimensions.window.height
