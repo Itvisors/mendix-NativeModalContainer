@@ -24,6 +24,10 @@ Show modal content, full page or with partial transparency
 
 The test project in the GitHub repository has samples
 
+## Flickering during hiding the modal.
+
+Note that sometimes flickering can occur when hiding the modal. Use conditional visibility on your content to hide it along with the Modal to prevent this.
+
 ## GitHub repository
 [https://github.com/Itvisors/mendix-NativeModalContainer]
 
