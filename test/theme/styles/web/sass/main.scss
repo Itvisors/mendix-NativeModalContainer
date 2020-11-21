@@ -52,6 +52,7 @@
 @import 'core/widgets/navigationlist';
 @import 'core/widgets/navigationtree';
 @import 'core/helpers/navigationtree';
+@import 'core/widgets/popupmenu';
 @import 'core/widgets/simplemenubar';
 @import 'core/helpers/simplemenubar';
 @import 'core/widgets/radiobuttons';
@@ -65,6 +66,7 @@
 @import 'core/helpers/typography';
 @import 'core/widgets/layoutgrid';
 @import 'core/widgets/progress';
+@import 'core/widgets/timeline';
 @import 'core/helpers/helperclasses';
 
 // Custom widgets
@@ -97,7 +99,6 @@
 @import 'ui_resources/atlas_ui_resources/layouts/layout-atlas-phone';
 @import 'ui_resources/atlas_ui_resources/layouts/layout-atlas-responsive';
 @import 'ui_resources/atlas_ui_resources/layouts/layout-atlas-tablet';
-@import 'ui_resources/atlas_ui_resources/layouts/layout-atlas-device-wrapper';
 
 // Custom
 @import 'app/custom';

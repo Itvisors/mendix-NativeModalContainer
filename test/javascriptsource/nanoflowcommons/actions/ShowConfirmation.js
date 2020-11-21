@@ -12,23 +12,25 @@ import { Big } from "big.js";
 
 /**
  * Shows a confirmation dialog during the execution of a nanoflow, to make perform actions based on the user input.
+ * @param {string} titleCaption - Set to empty to use default text 'Confirmation'. (Only for native)
  * @param {string} question - This field is required.
  * @param {string} cancelButtonCaption - Set to empty to use default text 'Cancel'.
  * @param {string} proceedButtonCaption - Set to empty to use default text 'OK'.
  * @returns {Promise.<boolean>}
  */
-export async function ShowConfirmation(question, cancelButtonCaption, proceedButtonCaption) {
+export async function ShowConfirmation(titleCaption, question, cancelButtonCaption, proceedButtonCaption) {
 	// BEGIN USER CODE
     if (!question) {
         return Promise.reject(new Error("Input parameter 'Question' is required"));
     }
     const cancel = cancelButtonCaption || "Cancel";
     const proceed = proceedButtonCaption || "OK";
+    const title = titleCaption || "Confirmation";
     // Native platform
     if (navigator && navigator.product === "ReactNative") {
         const Alert = require("react-native").Alert;
         return new Promise(resolve => {
-            Alert.alert("Confirmation", question, [
+            Alert.alert(title, question, [
                 { text: cancel, onPress: () => resolve(false), style: "cancel" },
                 { text: proceed, onPress: () => resolve(true) }
             ]);
