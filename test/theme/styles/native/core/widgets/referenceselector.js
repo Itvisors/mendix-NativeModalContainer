@@ -80,7 +80,8 @@ export const ReferenceSelector = {
     },
     itemContainer: {
         // All ViewStyle properties & rippleColor & activeOpacity & underlayColor are allowed
-        maxWidth: 500,
+        width: "100%",
+        maxWidth: undefined,
         paddingVertical: 6,
         paddingHorizontal: 16,
         backgroundColor: input.backgroundColor,
@@ -100,6 +101,8 @@ export const ReferenceSelector = {
     },
     selectedItemContainer: {
         // All ViewStyle properties are allowed
+        width: "100%",
+        maxWidth: undefined,
         backgroundColor: contrast.lowest,
     },
     /*  New dropdown styles end */

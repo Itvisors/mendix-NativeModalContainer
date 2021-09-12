@@ -1,7 +1,7 @@
 {
   "name": "nativemodalcontainer",
   "widgetName": "NativeModalContainer",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Mendix native modal container",
   "copyright": "ITvisors 2020",
   "author": "Marcel Groeneweg",
@@ -23,7 +23,7 @@
     "url": "https://github.com/Marcel Groeneweg/nativemodalcontainer/issues"
   },
   "devDependencies": {
-    "@mendix/pluggable-widgets-tools": "^8.14.0"
+    "@mendix/pluggable-widgets-tools": "^8.18.3"
   },
   "dependencies": {}
 }
