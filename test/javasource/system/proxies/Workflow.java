@@ -4,24 +4,24 @@
 
 package system.proxies;
 
-public class WorkflowInstance
+public class Workflow
 {
-	private final com.mendix.systemwideinterfaces.core.IMendixObject workflowInstanceMendixObject;
+	private final com.mendix.systemwideinterfaces.core.IMendixObject workflowMendixObject;
 
 	private final com.mendix.systemwideinterfaces.core.IContext context;
 
 	/**
 	 * Internal name of this entity
 	 */
-	public static final java.lang.String entityName = "System.WorkflowInstance";
+	public static final java.lang.String entityName = "System.Workflow";
 
 	/**
 	 * Enum describing members of this entity
 	 */
 	public enum MemberNames
 	{
-		WorkflowName("WorkflowName"),
-		WorkflowDescription("WorkflowDescription"),
+		Name("Name"),
+		Description("Description"),
 		StartTime("StartTime"),
 		EndTime("EndTime"),
 		DueDate("DueDate"),
@@ -29,8 +29,7 @@ public class WorkflowInstance
 		CanBeContinued("CanBeContinued"),
 		State("State"),
 		Reason("Reason"),
-		WorkflowInstance_WorkflowDefinition("System.WorkflowInstance_WorkflowDefinition"),
-		WorkflowInstance_WorkflowContext("System.WorkflowInstance_WorkflowContext");
+		Workflow_WorkflowDefinition("System.Workflow_WorkflowDefinition");
 
 		private java.lang.String metaName;
 
@@ -46,51 +45,51 @@ public class WorkflowInstance
 		}
 	}
 
-	public WorkflowInstance(com.mendix.systemwideinterfaces.core.IContext context)
+	public Workflow(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		this(context, com.mendix.core.Core.instantiate(context, "System.WorkflowInstance"));
+		this(context, com.mendix.core.Core.instantiate(context, "System.Workflow"));
 	}
 
-	protected WorkflowInstance(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject workflowInstanceMendixObject)
+	protected Workflow(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject workflowMendixObject)
 	{
-		if (workflowInstanceMendixObject == null)
+		if (workflowMendixObject == null)
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
-		if (!com.mendix.core.Core.isSubClassOf("System.WorkflowInstance", workflowInstanceMendixObject.getType()))
-			throw new java.lang.IllegalArgumentException("The given object is not a System.WorkflowInstance");
+		if (!com.mendix.core.Core.isSubClassOf("System.Workflow", workflowMendixObject.getType()))
+			throw new java.lang.IllegalArgumentException("The given object is not a System.Workflow");
 
-		this.workflowInstanceMendixObject = workflowInstanceMendixObject;
+		this.workflowMendixObject = workflowMendixObject;
 		this.context = context;
 	}
 
 	/**
-	 * @deprecated Use 'WorkflowInstance.load(IContext, IMendixIdentifier)' instead.
+	 * @deprecated Use 'Workflow.load(IContext, IMendixIdentifier)' instead.
 	 */
 	@java.lang.Deprecated
-	public static system.proxies.WorkflowInstance initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
+	public static system.proxies.Workflow initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
 	{
-		return system.proxies.WorkflowInstance.load(context, mendixIdentifier);
+		return system.proxies.Workflow.load(context, mendixIdentifier);
 	}
 
 	/**
 	 * Initialize a proxy using context (recommended). This context will be used for security checking when the get- and set-methods without context parameters are called.
 	 * The get- and set-methods with context parameter should be used when for instance sudo access is necessary (IContext.createSudoClone() can be used to obtain sudo access).
 	 */
-	public static system.proxies.WorkflowInstance initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
+	public static system.proxies.Workflow initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
-		return new system.proxies.WorkflowInstance(context, mendixObject);
+		return new system.proxies.Workflow(context, mendixObject);
 	}
 
-	public static system.proxies.WorkflowInstance load(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
+	public static system.proxies.Workflow load(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
 	{
 		com.mendix.systemwideinterfaces.core.IMendixObject mendixObject = com.mendix.core.Core.retrieveId(context, mendixIdentifier);
-		return system.proxies.WorkflowInstance.initialize(context, mendixObject);
+		return system.proxies.Workflow.initialize(context, mendixObject);
 	}
 
-	public static java.util.List<system.proxies.WorkflowInstance> load(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String xpathConstraint) throws com.mendix.core.CoreException
+	public static java.util.List<system.proxies.Workflow> load(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String xpathConstraint) throws com.mendix.core.CoreException
 	{
-		java.util.List<system.proxies.WorkflowInstance> result = new java.util.ArrayList<system.proxies.WorkflowInstance>();
-		for (com.mendix.systemwideinterfaces.core.IMendixObject obj : com.mendix.core.Core.retrieveXPathQuery(context, "//System.WorkflowInstance" + xpathConstraint))
-			result.add(system.proxies.WorkflowInstance.initialize(context, obj));
+		java.util.List<system.proxies.Workflow> result = new java.util.ArrayList<system.proxies.Workflow>();
+		for (com.mendix.systemwideinterfaces.core.IMendixObject obj : com.mendix.core.Core.retrieveXPathQuery(context, "//System.Workflow" + xpathConstraint))
+			result.add(system.proxies.Workflow.initialize(context, obj));
 		return result;
 	}
 
@@ -126,75 +125,75 @@ public class WorkflowInstance
 		com.mendix.core.Core.delete(context, getMendixObject());
 	}
 	/**
-	 * @return value of WorkflowName
+	 * @return value of Name
 	 */
-	public final java.lang.String getWorkflowName()
+	public final java.lang.String getName()
 	{
-		return getWorkflowName(getContext());
+		return getName(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of WorkflowName
+	 * @return value of Name
 	 */
-	public final java.lang.String getWorkflowName(com.mendix.systemwideinterfaces.core.IContext context)
+	public final java.lang.String getName(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		return (java.lang.String) getMendixObject().getValue(context, MemberNames.WorkflowName.toString());
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.Name.toString());
 	}
 
 	/**
-	 * Set value of WorkflowName
-	 * @param workflowname
+	 * Set value of Name
+	 * @param name
 	 */
-	public final void setWorkflowName(java.lang.String workflowname)
+	public final void setName(java.lang.String name)
 	{
-		setWorkflowName(getContext(), workflowname);
+		setName(getContext(), name);
 	}
 
 	/**
-	 * Set value of WorkflowName
+	 * Set value of Name
 	 * @param context
-	 * @param workflowname
+	 * @param name
 	 */
-	public final void setWorkflowName(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String workflowname)
+	public final void setName(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String name)
 	{
-		getMendixObject().setValue(context, MemberNames.WorkflowName.toString(), workflowname);
+		getMendixObject().setValue(context, MemberNames.Name.toString(), name);
 	}
 
 	/**
-	 * @return value of WorkflowDescription
+	 * @return value of Description
 	 */
-	public final java.lang.String getWorkflowDescription()
+	public final java.lang.String getDescription()
 	{
-		return getWorkflowDescription(getContext());
+		return getDescription(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of WorkflowDescription
+	 * @return value of Description
 	 */
-	public final java.lang.String getWorkflowDescription(com.mendix.systemwideinterfaces.core.IContext context)
+	public final java.lang.String getDescription(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		return (java.lang.String) getMendixObject().getValue(context, MemberNames.WorkflowDescription.toString());
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.Description.toString());
 	}
 
 	/**
-	 * Set value of WorkflowDescription
-	 * @param workflowdescription
+	 * Set value of Description
+	 * @param description
 	 */
-	public final void setWorkflowDescription(java.lang.String workflowdescription)
+	public final void setDescription(java.lang.String description)
 	{
-		setWorkflowDescription(getContext(), workflowdescription);
+		setDescription(getContext(), description);
 	}
 
 	/**
-	 * Set value of WorkflowDescription
+	 * Set value of Description
 	 * @param context
-	 * @param workflowdescription
+	 * @param description
 	 */
-	public final void setWorkflowDescription(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String workflowdescription)
+	public final void setDescription(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String description)
 	{
-		getMendixObject().setValue(context, MemberNames.WorkflowDescription.toString(), workflowdescription);
+		getMendixObject().setValue(context, MemberNames.Description.toString(), description);
 	}
 
 	/**
@@ -458,89 +457,46 @@ public class WorkflowInstance
 	}
 
 	/**
-	 * @return value of WorkflowInstance_WorkflowDefinition
+	 * @return value of Workflow_WorkflowDefinition
 	 */
-	public final system.proxies.WorkflowDefinition getWorkflowInstance_WorkflowDefinition() throws com.mendix.core.CoreException
+	public final system.proxies.WorkflowDefinition getWorkflow_WorkflowDefinition() throws com.mendix.core.CoreException
 	{
-		return getWorkflowInstance_WorkflowDefinition(getContext());
+		return getWorkflow_WorkflowDefinition(getContext());
 	}
 
 	/**
 	 * @param context
-	 * @return value of WorkflowInstance_WorkflowDefinition
+	 * @return value of Workflow_WorkflowDefinition
 	 */
-	public final system.proxies.WorkflowDefinition getWorkflowInstance_WorkflowDefinition(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	public final system.proxies.WorkflowDefinition getWorkflow_WorkflowDefinition(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
 	{
 		system.proxies.WorkflowDefinition result = null;
-		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.WorkflowInstance_WorkflowDefinition.toString());
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Workflow_WorkflowDefinition.toString());
 		if (identifier != null)
 			result = system.proxies.WorkflowDefinition.load(context, identifier);
 		return result;
 	}
 
 	/**
-	 * Set value of WorkflowInstance_WorkflowDefinition
-	 * @param workflowinstance_workflowdefinition
+	 * Set value of Workflow_WorkflowDefinition
+	 * @param workflow_workflowdefinition
 	 */
-	public final void setWorkflowInstance_WorkflowDefinition(system.proxies.WorkflowDefinition workflowinstance_workflowdefinition)
+	public final void setWorkflow_WorkflowDefinition(system.proxies.WorkflowDefinition workflow_workflowdefinition)
 	{
-		setWorkflowInstance_WorkflowDefinition(getContext(), workflowinstance_workflowdefinition);
+		setWorkflow_WorkflowDefinition(getContext(), workflow_workflowdefinition);
 	}
 
 	/**
-	 * Set value of WorkflowInstance_WorkflowDefinition
+	 * Set value of Workflow_WorkflowDefinition
 	 * @param context
-	 * @param workflowinstance_workflowdefinition
+	 * @param workflow_workflowdefinition
 	 */
-	public final void setWorkflowInstance_WorkflowDefinition(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.WorkflowDefinition workflowinstance_workflowdefinition)
+	public final void setWorkflow_WorkflowDefinition(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.WorkflowDefinition workflow_workflowdefinition)
 	{
-		if (workflowinstance_workflowdefinition == null)
-			getMendixObject().setValue(context, MemberNames.WorkflowInstance_WorkflowDefinition.toString(), null);
+		if (workflow_workflowdefinition == null)
+			getMendixObject().setValue(context, MemberNames.Workflow_WorkflowDefinition.toString(), null);
 		else
-			getMendixObject().setValue(context, MemberNames.WorkflowInstance_WorkflowDefinition.toString(), workflowinstance_workflowdefinition.getMendixObject().getId());
-	}
-
-	/**
-	 * @return value of WorkflowInstance_WorkflowContext
-	 */
-	public final system.proxies.WorkflowContext getWorkflowInstance_WorkflowContext() throws com.mendix.core.CoreException
-	{
-		return getWorkflowInstance_WorkflowContext(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of WorkflowInstance_WorkflowContext
-	 */
-	public final system.proxies.WorkflowContext getWorkflowInstance_WorkflowContext(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
-	{
-		system.proxies.WorkflowContext result = null;
-		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.WorkflowInstance_WorkflowContext.toString());
-		if (identifier != null)
-			result = system.proxies.WorkflowContext.load(context, identifier);
-		return result;
-	}
-
-	/**
-	 * Set value of WorkflowInstance_WorkflowContext
-	 * @param workflowinstance_workflowcontext
-	 */
-	public final void setWorkflowInstance_WorkflowContext(system.proxies.WorkflowContext workflowinstance_workflowcontext)
-	{
-		setWorkflowInstance_WorkflowContext(getContext(), workflowinstance_workflowcontext);
-	}
-
-	/**
-	 * Set value of WorkflowInstance_WorkflowContext
-	 * @param context
-	 * @param workflowinstance_workflowcontext
-	 */
-	public final void setWorkflowInstance_WorkflowContext(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.WorkflowContext workflowinstance_workflowcontext)
-	{
-		if (workflowinstance_workflowcontext == null)
-			getMendixObject().setValue(context, MemberNames.WorkflowInstance_WorkflowContext.toString(), null);
-		else
-			getMendixObject().setValue(context, MemberNames.WorkflowInstance_WorkflowContext.toString(), workflowinstance_workflowcontext.getMendixObject().getId());
+			getMendixObject().setValue(context, MemberNames.Workflow_WorkflowDefinition.toString(), workflow_workflowdefinition.getMendixObject().getId());
 	}
 
 	/**
@@ -548,7 +504,7 @@ public class WorkflowInstance
 	 */
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
-		return workflowInstanceMendixObject;
+		return workflowMendixObject;
 	}
 
 	/**
@@ -567,7 +523,7 @@ public class WorkflowInstance
 
 		if (obj != null && getClass().equals(obj.getClass()))
 		{
-			final system.proxies.WorkflowInstance that = (system.proxies.WorkflowInstance) obj;
+			final system.proxies.Workflow that = (system.proxies.Workflow) obj;
 			return getMendixObject().equals(that.getMendixObject());
 		}
 		return false;
@@ -584,7 +540,7 @@ public class WorkflowInstance
 	 */
 	public static java.lang.String getType()
 	{
-		return "System.WorkflowInstance";
+		return "System.Workflow";
 	}
 
 	/**

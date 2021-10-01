@@ -4,7 +4,7 @@
 
 package system.proxies;
 
-public enum WorkflowTaskState
+public enum WorkflowUserTaskState
 {
 	Initialized(new java.lang.String[][] { new java.lang.String[] { "en_US", "Initialized" } }),
 	Targeted(new java.lang.String[][] { new java.lang.String[] { "en_US", "Targeted" } }),
@@ -17,7 +17,7 @@ public enum WorkflowTaskState
 
 	private java.util.Map<java.lang.String, java.lang.String> captions;
 
-	private WorkflowTaskState(java.lang.String[][] captionStrings)
+	private WorkflowUserTaskState(java.lang.String[][] captionStrings)
 	{
 		this.captions = new java.util.HashMap<java.lang.String, java.lang.String>();
 		for (java.lang.String[] captionString : captionStrings)
