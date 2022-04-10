@@ -6,29 +6,26 @@ package system.proxies;
 
 public enum WorkflowUserTaskState
 {
-	Initialized(new java.lang.String[][] { new java.lang.String[] { "en_US", "Initialized" } }),
-	Targeted(new java.lang.String[][] { new java.lang.String[] { "en_US", "Targeted" } }),
-	Starting(new java.lang.String[][] { new java.lang.String[] { "en_US", "Starting" } }),
-	Paused(new java.lang.String[][] { new java.lang.String[] { "en_US", "Paused" } }),
+	Created(new java.lang.String[][] { new java.lang.String[] { "en_US", "Created" } }),
 	InProgress(new java.lang.String[][] { new java.lang.String[] { "en_US", "In Progress" } }),
 	Completed(new java.lang.String[][] { new java.lang.String[] { "en_US", "Completed" } }),
+	Paused(new java.lang.String[][] { new java.lang.String[] { "en_US", "Paused" } }),
 	Aborted(new java.lang.String[][] { new java.lang.String[] { "en_US", "Aborted" } }),
 	Failed(new java.lang.String[][] { new java.lang.String[] { "en_US", "Failed" } });
 
-	private java.util.Map<java.lang.String, java.lang.String> captions;
+	private final java.util.Map<java.lang.String, java.lang.String> captions;
 
 	private WorkflowUserTaskState(java.lang.String[][] captionStrings)
 	{
-		this.captions = new java.util.HashMap<java.lang.String, java.lang.String>();
-		for (java.lang.String[] captionString : captionStrings)
+		this.captions = new java.util.HashMap<>();
+		for (java.lang.String[] captionString : captionStrings) {
 			captions.put(captionString[0], captionString[1]);
+		}
 	}
 
 	public java.lang.String getCaption(java.lang.String languageCode)
 	{
-		if (captions.containsKey(languageCode))
-			return captions.get(languageCode);
-		return captions.get("en_US");
+		return captions.getOrDefault(languageCode, "en_US");
 	}
 
 	public java.lang.String getCaption()

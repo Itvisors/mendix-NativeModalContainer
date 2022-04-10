@@ -5,28 +5,31 @@
 package system.proxies;
 
 /**
- * The type of context to use for executing queued tasks.
+ * The type of context to use for executing tasks in task queues.
+ * * System: Execute in the system context.
+ * * User: Execute in a user context for a specific user.
+ * * Anonymous: Execute in a context for an anonymous user.
  */
 public enum ContextType
 {
 	System(new java.lang.String[][] { new java.lang.String[] { "en_US", "System" } }),
 	User(new java.lang.String[][] { new java.lang.String[] { "en_US", "User" } }),
-	Anonymous(new java.lang.String[][] { new java.lang.String[] { "en_US", "Anonymous" } });
+	Anonymous(new java.lang.String[][] { new java.lang.String[] { "en_US", "Anonymous" } }),
+	ScheduledEvent(new java.lang.String[][] { new java.lang.String[] { "en_US", "ScheduledEvent" } });
 
-	private java.util.Map<java.lang.String, java.lang.String> captions;
+	private final java.util.Map<java.lang.String, java.lang.String> captions;
 
 	private ContextType(java.lang.String[][] captionStrings)
 	{
-		this.captions = new java.util.HashMap<java.lang.String, java.lang.String>();
-		for (java.lang.String[] captionString : captionStrings)
+		this.captions = new java.util.HashMap<>();
+		for (java.lang.String[] captionString : captionStrings) {
 			captions.put(captionString[0], captionString[1]);
+		}
 	}
 
 	public java.lang.String getCaption(java.lang.String languageCode)
 	{
-		if (captions.containsKey(languageCode))
-			return captions.get(languageCode);
-		return captions.get("en_US");
+		return captions.getOrDefault(languageCode, "en_US");
 	}
 
 	public java.lang.String getCaption()

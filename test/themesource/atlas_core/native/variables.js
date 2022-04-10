@@ -425,6 +425,29 @@ let listView = {
 };
 listView = merge(listView, custom.listView || {});
 //
+// Checkbox Styles
+let checkbox = {
+    checkboxInput: {
+        color: brand.primary,
+        size: 20,
+        backgroundColor: background.primary,
+        borderColor: border.color,
+        borderWidth: border.width,
+        borderRadius: border.radiusSmall,
+        width: 40,
+        height: 40
+    },
+    checkboxInputDisabled: {
+        color: brand.primaryLight,
+        backgroundColor: background.secondary
+    },
+    checkboxInputError: {
+        color: brand.danger,
+        borderColor: brand.danger
+    }
+};
+checkbox = merge(checkbox, custom.checkbox || {});
+//
 // Layoutgrid Styles
 let layoutGrid = {
     gutterSize: 16
@@ -460,7 +483,8 @@ let floatingActionButton = {
         fontSize: font.sizeSmall
     },
     secondaryButtonCaptionContainer: {
-        backgroundColor: background.primary
+        backgroundColor: background.primary,
+        borderColor: background.primary
     }
 };
 floatingActionButton = merge(floatingActionButton, custom.floatingActionButton || {});
@@ -605,5 +629,47 @@ let slider = {
 };
 slider = merge(slider, custom.slider || {});
 //
+// Radio Buttons
+let radioButtons = {
+    labelTextStyle: {
+        color: font.colorTitle,
+        fontSize: font.sizeSmall,
+        lineHeight: font.lineHeightSmall,
+        marginBottom: spacing.small
+    },
+    radioButtonItemContainerStyle: {
+        marginBottom: spacing.small
+    },
+    radioButtonItemContainerDisabledStyle: {
+        opacity: 0.5
+    },
+    radioButtonItemContainerHorizontalStyle: {
+        marginEnd: spacing.small
+    },
+    circularButtonStyle: {
+        width: 16,
+        height: 16,
+        borderRadius: 8,
+        borderColor: border.color,
+        marginEnd: spacing.smaller
+    },
+    activeButtonStyle: {
+        width: 8,
+        height: 8,
+        borderRadius: 4,
+        backgroundColor: brand.primary
+    },
+    radioButtonItemTitleStyle: {
+        color: font.colorTitle,
+        fontSize: font.sizeSmall,
+        lineHeight: font.lineHeightSmall
+    },
+    validationMessage: {
+        color: brand.danger,
+        fontSize: font.sizeSmall
+    }
+};
+radioButtons = merge(radioButtons, custom.radioButtons || {});
+//
 export * from "../../../theme/native/custom-variables";
-export { accordion, brand, backgroundDefaults, background, border, button, contrast, fontDefaults, font, input, image, layoutGrid, listView, navigation, spacing, container, tabContainer, badge, floatingActionButton, introScreen, listViewSwipe, progressBar, progressCircle, slider, rating };
+export { accordion, brand, backgroundDefaults, background, border, button, contrast, checkbox, fontDefaults, font, input, image, layoutGrid, listView, navigation, spacing, container, tabContainer, badge, floatingActionButton, introScreen, listViewSwipe, progressBar, progressCircle, slider, rating, radioButtons };

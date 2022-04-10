@@ -17,7 +17,7 @@ export async function ToggleSidebar() {
 	// BEGIN USER CODE
     mx.ui.toggleSidebar();
     // Web platform
-    if (window) {
+    if (window && !(navigator && navigator.product === "ReactNative")) {
         document.dispatchEvent(new CustomEvent("toggleSidebar"));
     }
     return Promise.resolve();
