@@ -1,13 +1,14 @@
 {
   "name": "nativemodalcontainer",
   "widgetName": "NativeModalContainer",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "Mendix native modal container",
   "copyright": "ITvisors 2020",
   "author": "Marcel Groeneweg",
   "engines": {
     "node": ">=12"
   },
+  "license": "Apache-2.0",
   "config": {
     "projectPath": "./test/"
   },
@@ -20,12 +21,8 @@
     "prerelease": "npm run lint",
     "release": "pluggable-widgets-tools release:native"
   },
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/Marcel Groeneweg/nativemodalcontainer/issues"
-  },
   "devDependencies": {
-    "@mendix/pluggable-widgets-tools": "^9.10.0"
+    "@mendix/pluggable-widgets-tools": "^9.0.0"
   },
   "dependencies": {}
 }
