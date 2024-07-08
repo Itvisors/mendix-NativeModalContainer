@@ -1,7 +1,9 @@
 import { Modal, View } from "react-native";
 import { createElement } from "react";
 
-export function NativeModalContainer({ content, modalVisible }) {
+export function NativeModalContainer(props) {
+    const { modalVisible } = props;
+
     if (!modalVisible) {
         return null;
     }
@@ -15,6 +17,7 @@ export function NativeModalContainer({ content, modalVisible }) {
             visible={!!modalVisible.value}
             transparent={true}
             style={{ flex: 1 }}
+            testID={props.name}
             supportedOrientations={[
                 "portrait",
                 "portrait-upside-down",
@@ -23,7 +26,9 @@ export function NativeModalContainer({ content, modalVisible }) {
                 "landscape-right"
             ]}
         >
-            <View style={style}>{content}</View>
+            <View style={style} testID={`${props.name}$content`}>
+                {props.content}
+            </View>
         </Modal>
     );
 }
