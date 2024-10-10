@@ -8,13 +8,15 @@ export function NativeModalContainer(props) {
         return null;
     }
 
+    const modalVisibleValue = !!modalVisible.value;
+
     const style = {
         flexDirection: "row",
         flex: 1
     };
     return (
         <Modal
-            visible={!!modalVisible.value}
+            visible={modalVisibleValue}
             transparent={true}
             style={{ flex: 1 }}
             testID={props.name}
