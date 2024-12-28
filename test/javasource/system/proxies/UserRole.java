@@ -4,6 +4,9 @@
 
 package system.proxies;
 
+/**
+ * List of user roles in the application. `Administrator`/`User` or any custom roles.
+ */
 public class UserRole implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
 	private final com.mendix.systemwideinterfaces.core.IMendixObject userRoleMendixObject;

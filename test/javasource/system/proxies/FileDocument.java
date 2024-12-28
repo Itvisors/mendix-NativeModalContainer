@@ -213,7 +213,7 @@ public class FileDocument implements com.mendix.systemwideinterfaces.core.IEntit
 	  */
 	public final void getContents(com.mendix.systemwideinterfaces.core.IContext context, java.io.OutputStream outputStream)
 	{
-		com.mendix.core.objectmanagement.member.MendixBinary binary = (com.mendix.core.objectmanagement.member.MendixBinary) getMendixObject().getMember(context, MemberNames.Contents.toString());
+		com.mendix.core.objectmanagement.member.MendixBinary binary = (com.mendix.core.objectmanagement.member.MendixBinary) getMendixObject().getMember(MemberNames.Contents.toString());
 		binary.retrieveValue(context, outputStream);
 	}
 
@@ -232,7 +232,7 @@ public class FileDocument implements com.mendix.systemwideinterfaces.core.IEntit
 		if (getMendixObject().getState() == com.mendix.systemwideinterfaces.core.IMendixObject.ObjectState.INSTANTIATED) {
 			try { commit(); } catch (com.mendix.core.CoreException ex) { }
 		}
-		com.mendix.core.objectmanagement.member.MendixBinary binary = (com.mendix.core.objectmanagement.member.MendixBinary) getMendixObject().getMember(context, MemberNames.Contents.toString());
+		com.mendix.core.objectmanagement.member.MendixBinary binary = (com.mendix.core.objectmanagement.member.MendixBinary) getMendixObject().getMember(MemberNames.Contents.toString());
 		binary.storeValue(context, inputStream, length);
 	}
 

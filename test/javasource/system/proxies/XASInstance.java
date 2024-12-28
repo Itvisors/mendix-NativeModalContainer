@@ -4,6 +4,9 @@
 
 package system.proxies;
 
+/**
+ * Information about the nodes in a cluster of a Mendix application.
+ */
 public class XASInstance implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
 	private final com.mendix.systemwideinterfaces.core.IMendixObject xASInstanceMendixObject;

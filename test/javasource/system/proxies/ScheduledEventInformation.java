@@ -4,6 +4,9 @@
 
 package system.proxies;
 
+/**
+ * Information about Scheduled Events.
+ */
 public class ScheduledEventInformation implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
 	private final com.mendix.systemwideinterfaces.core.IMendixObject scheduledEventInformationMendixObject;

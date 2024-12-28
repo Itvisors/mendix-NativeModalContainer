@@ -4,6 +4,9 @@
 
 package system.proxies;
 
+/**
+ * Authentication token to extract back the session. Helps in getting session data back for the specific user.
+ */
 public class TokenInformation implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
 	private final com.mendix.systemwideinterfaces.core.IMendixObject tokenInformationMendixObject;

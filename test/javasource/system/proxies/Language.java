@@ -4,6 +4,9 @@
 
 package system.proxies;
 
+/**
+ * Language support for internationalization.
+ */
 public class Language implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
 	private final com.mendix.systemwideinterfaces.core.IMendixObject languageMendixObject;

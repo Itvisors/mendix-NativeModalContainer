@@ -4,6 +4,9 @@
 
 package system.proxies;
 
+/**
+ * Represents a time zone.
+ */
 public class TimeZone implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
 	private final com.mendix.systemwideinterfaces.core.IMendixObject timeZoneMendixObject;

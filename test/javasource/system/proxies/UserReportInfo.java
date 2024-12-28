@@ -4,6 +4,9 @@
 
 package system.proxies;
 
+/**
+ * User report information for license request.
+ */
 public class UserReportInfo implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
 	private final com.mendix.systemwideinterfaces.core.IMendixObject userReportInfoMendixObject;
