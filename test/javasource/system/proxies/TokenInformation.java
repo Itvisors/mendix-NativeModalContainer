@@ -52,7 +52,7 @@ public class TokenInformation implements com.mendix.systemwideinterfaces.core.IE
 		if (tokenInformationMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, tokenInformationMendixObject.getType())) {
+		if (!tokenInformationMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 

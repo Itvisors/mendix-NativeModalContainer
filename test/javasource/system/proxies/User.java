@@ -60,7 +60,7 @@ public class User implements com.mendix.systemwideinterfaces.core.IEntityProxy
 		if (userMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, userMendixObject.getType())) {
+		if (!userMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 
@@ -77,7 +77,7 @@ public class User implements com.mendix.systemwideinterfaces.core.IEntityProxy
 	 */
 	public static system.proxies.User initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
-		if (com.mendix.core.Core.isSubClassOf("Administration.Account", mendixObject.getType())) {
+		if (mendixObject.isInstanceOf("Administration.Account")) {
 			return administration.proxies.Account.initialize(context, mendixObject);
 		}
 		return new system.proxies.User(context, mendixObject);

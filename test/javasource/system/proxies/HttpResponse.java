@@ -43,7 +43,7 @@ public class HttpResponse extends system.proxies.HttpMessage
 	protected HttpResponse(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject httpResponseMendixObject)
 	{
 		super(context, httpResponseMendixObject);
-		if (!com.mendix.core.Core.isSubClassOf(entityName, httpResponseMendixObject.getType())) {
+		if (!httpResponseMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 	}

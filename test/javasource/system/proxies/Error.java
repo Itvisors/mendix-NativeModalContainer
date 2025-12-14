@@ -48,7 +48,7 @@ public class Error implements com.mendix.systemwideinterfaces.core.IEntityProxy
 		if (errorMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, errorMendixObject.getType())) {
+		if (!errorMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 
@@ -65,7 +65,7 @@ public class Error implements com.mendix.systemwideinterfaces.core.IEntityProxy
 	 */
 	public static system.proxies.Error initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
-		if (com.mendix.core.Core.isSubClassOf("System.SoapFault", mendixObject.getType())) {
+		if (mendixObject.isInstanceOf("System.SoapFault")) {
 			return system.proxies.SoapFault.initialize(context, mendixObject);
 		}
 		return new system.proxies.Error(context, mendixObject);

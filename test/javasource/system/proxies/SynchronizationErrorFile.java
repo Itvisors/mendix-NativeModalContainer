@@ -46,7 +46,7 @@ public class SynchronizationErrorFile extends system.proxies.FileDocument
 	protected SynchronizationErrorFile(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject synchronizationErrorFileMendixObject)
 	{
 		super(context, synchronizationErrorFileMendixObject);
-		if (!com.mendix.core.Core.isSubClassOf(entityName, synchronizationErrorFileMendixObject.getType())) {
+		if (!synchronizationErrorFileMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 	}

@@ -6,27 +6,25 @@ package system.proxies;
 
 public enum ProxyConfiguration
 {
-	UseAppSettings(new java.lang.String[][] { new java.lang.String[] { "en_US", "UseAppSettings" } }),
-	Override(new java.lang.String[][] { new java.lang.String[] { "en_US", "Override" } }),
-	NoProxy(new java.lang.String[][] { new java.lang.String[] { "en_US", "NoProxy" } });
+	UseAppSettings("fb9117ef-0279-4980-b32b-7aeff5814461"),
+	Override("a2f1f59f-d8f0-4112-90b5-f85955b5f7f0"),
+	NoProxy("47947336-e329-423a-8a25-1a7d6769f336");
 
-	private final java.util.Map<java.lang.String, java.lang.String> captions;
-
-	private ProxyConfiguration(java.lang.String[][] captionStrings)
+	private final java.lang.String i18nCaptionKey;
+	
+	private ProxyConfiguration(java.lang.String i18nCaptionKey)
 	{
-		this.captions = new java.util.HashMap<>();
-		for (java.lang.String[] captionString : captionStrings) {
-			captions.put(captionString[0], captionString[1]);
-		}
+		this.i18nCaptionKey = i18nCaptionKey;
 	}
 
 	public java.lang.String getCaption(java.lang.String languageCode)
 	{
-		return captions.getOrDefault(languageCode, "en_US");
+		String caption = com.mendix.core.Core.getInternationalizedString(languageCode, i18nCaptionKey);
+		return caption.isEmpty() ? getCaption() : caption;
 	}
 
 	public java.lang.String getCaption()
 	{
-		return captions.get("en_US");
+		return com.mendix.core.Core.getInternationalizedString("en_US", i18nCaptionKey);
 	}
 }

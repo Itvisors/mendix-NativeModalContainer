@@ -51,7 +51,7 @@ public class TimeZone implements com.mendix.systemwideinterfaces.core.IEntityPro
 		if (timeZoneMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, timeZoneMendixObject.getType())) {
+		if (!timeZoneMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 

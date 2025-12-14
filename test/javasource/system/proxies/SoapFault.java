@@ -47,7 +47,7 @@ public class SoapFault extends system.proxies.Error
 	protected SoapFault(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject soapFaultMendixObject)
 	{
 		super(context, soapFaultMendixObject);
-		if (!com.mendix.core.Core.isSubClassOf(entityName, soapFaultMendixObject.getType())) {
+		if (!soapFaultMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 	}

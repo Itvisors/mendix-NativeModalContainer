@@ -9,56 +9,54 @@ package system.proxies;
  */
 public enum WorkflowEventType
 {
-	WorkflowCompleted(new java.lang.String[][] { new java.lang.String[] { "en_US", "Workflow Completed" } }),
-	WorkflowInitiated(new java.lang.String[][] { new java.lang.String[] { "en_US", "Workflow Initiated" } }),
-	WorkflowRestarted(new java.lang.String[][] { new java.lang.String[] { "en_US", "Workflow Restarted" } }),
-	WorkflowFailed(new java.lang.String[][] { new java.lang.String[] { "en_US", "Workflow Failed" } }),
-	WorkflowAborted(new java.lang.String[][] { new java.lang.String[] { "en_US", "Workflow Aborted" } }),
-	WorkflowPaused(new java.lang.String[][] { new java.lang.String[] { "en_US", "Workflow Paused" } }),
-	WorkflowUnpaused(new java.lang.String[][] { new java.lang.String[] { "en_US", "Workflow Unpaused" } }),
-	WorkflowRetried(new java.lang.String[][] { new java.lang.String[] { "en_US", "Workflow Retried" } }),
-	WorkflowUpdated(new java.lang.String[][] { new java.lang.String[] { "en_US", "Workflow Updated" } }),
-	WorkflowUpgraded(new java.lang.String[][] { new java.lang.String[] { "en_US", "Workflow Upgraded" } }),
-	WorkflowConflicted(new java.lang.String[][] { new java.lang.String[] { "en_US", "Workflow Conflicted" } }),
-	WorkflowResolved(new java.lang.String[][] { new java.lang.String[] { "en_US", "Workflow Resolved" } }),
-	WorkflowJumpToOptionApplied(new java.lang.String[][] { new java.lang.String[] { "en_US", "Workflow Jump-To Option Applied" } }),
-	StartEventExecuted(new java.lang.String[][] { new java.lang.String[] { "en_US", "Start Event Executed" } }),
-	EndEventExecuted(new java.lang.String[][] { new java.lang.String[] { "en_US", "End Event Executed" } }),
-	DecisionExecuted(new java.lang.String[][] { new java.lang.String[] { "en_US", "Decision Executed" } }),
-	JumpExecuted(new java.lang.String[][] { new java.lang.String[] { "en_US", "Jump Executed" } }),
-	ParallelSplitExecuted(new java.lang.String[][] { new java.lang.String[] { "en_US", "Parallel Split Executed" } }),
-	ParallelMergeExecuted(new java.lang.String[][] { new java.lang.String[] { "en_US", "Parallel Merge Executed" } }),
-	CallWorkflowStarted(new java.lang.String[][] { new java.lang.String[] { "en_US", "Call Workflow Started" } }),
-	CallWorkflowEnded(new java.lang.String[][] { new java.lang.String[] { "en_US", "Call Workflow Ended" } }),
-	CallMicroflowStarted(new java.lang.String[][] { new java.lang.String[] { "en_US", "Call Microflow Started" } }),
-	CallMicroflowEnded(new java.lang.String[][] { new java.lang.String[] { "en_US", "Call Microflow Ended" } }),
-	WaitForNotificationStarted(new java.lang.String[][] { new java.lang.String[] { "en_US", "Wait for Notification Started" } }),
-	WaitForNotificationEnded(new java.lang.String[][] { new java.lang.String[] { "en_US", "Wait for Notification Ended" } }),
-	WaitForTimerStarted(new java.lang.String[][] { new java.lang.String[] { "en_US", "Timer Started" } }),
-	WaitForTimerEnded(new java.lang.String[][] { new java.lang.String[] { "en_US", "Timer Ended" } }),
-	UserTaskStarted(new java.lang.String[][] { new java.lang.String[] { "en_US", "User Task Started" } }),
-	MultiUserTaskOutcomeSelected(new java.lang.String[][] { new java.lang.String[] { "en_US", "Multi-User Task Outcome Selected" } }),
-	UserTaskEnded(new java.lang.String[][] { new java.lang.String[] { "en_US", "User Task Ended" } }),
-	NonInterruptingTimerEventExecuted(new java.lang.String[][] { new java.lang.String[] { "en_US", "Non-Interrupting Timer Event Executed" } }),
-	InterruptingTimerEventExecuted(new java.lang.String[][] { new java.lang.String[] { "en_US", "Interrupting Timer Event Executed" } });
+	WorkflowCompleted("0103f999-ca8c-47d8-9ceb-9c7cf222e8f7"),
+	WorkflowInitiated("cad96ddd-bba5-4aba-b6ba-5780068c18fa"),
+	WorkflowRestarted("9a4a57dc-a094-4626-a215-78fdad041aa0"),
+	WorkflowFailed("e9777505-1f18-4495-888e-48f3b2f72c49"),
+	WorkflowAborted("53b39437-e2db-4c91-bcc7-754841a11c75"),
+	WorkflowPaused("dd14f607-2303-4de6-9f02-2cb0192c8462"),
+	WorkflowUnpaused("e6812790-3c50-40ed-aab2-d077e1c1d7fc"),
+	WorkflowRetried("8d15c727-bcaa-4d44-a2b3-83bdbbe3dc55"),
+	WorkflowUpdated("f3cef9e2-bcc9-4205-b939-6fc9678306c9"),
+	WorkflowUpgraded("9e30f32e-d89e-44f4-9e7c-1384624ae405"),
+	WorkflowConflicted("0a8b45ee-6986-4d32-bfe7-3119aaf9c184"),
+	WorkflowResolved("689db2bb-1cd9-455e-9453-e608fbd99ded"),
+	WorkflowJumpToOptionApplied("88874cde-d986-48a3-9d71-be8b4efc1d1c"),
+	StartEventExecuted("07f80efd-df28-4c75-9639-f250661417ba"),
+	EndEventExecuted("258d1223-25ae-419e-91d9-53b1c245d953"),
+	DecisionExecuted("b7090cb4-6690-4832-9087-09e1066307c6"),
+	JumpExecuted("cfbf346a-c02d-4835-9526-e7d918e80321"),
+	ParallelSplitExecuted("535ca5d9-e50c-47a1-9950-2d7a44ba5b75"),
+	ParallelMergeExecuted("e86bad9a-6397-4d35-a745-ab1c49caddb4"),
+	CallWorkflowStarted("26df2c57-64dc-45de-a8b8-dc6eb1ac3955"),
+	CallWorkflowEnded("33b6a336-edb6-40df-9480-589a6a55c0b3"),
+	CallMicroflowStarted("69f2262b-a8bb-451a-8359-e7e2d02092db"),
+	CallMicroflowEnded("09b36ea3-9a54-4960-86d6-a05ba3c60813"),
+	WaitForNotificationStarted("f7182f3a-dd4a-4bf0-9365-b7351aa00693"),
+	WaitForNotificationEnded("c58ae75a-d617-4935-80bd-1f48afbffa24"),
+	WaitForTimerStarted("5277eb41-8d1e-4014-8b9e-2a05f57d272e"),
+	WaitForTimerEnded("493b163c-999c-40db-94d9-2cdbd70d0f99"),
+	UserTaskStarted("8e4291c4-2e58-497a-b980-2b1bbd3e4807"),
+	MultiUserTaskOutcomeSelected("f024ad0a-e845-4926-8623-106bb4cdc496"),
+	UserTaskEnded("ffca9fd8-d7e1-4992-87b9-613bb947b773"),
+	NonInterruptingTimerEventExecuted("a7735eae-518a-4e24-b81f-1f2f34378c1f"),
+	InterruptingTimerEventExecuted("c209cca5-c73b-4205-a7ea-755b189e7db0");
 
-	private final java.util.Map<java.lang.String, java.lang.String> captions;
-
-	private WorkflowEventType(java.lang.String[][] captionStrings)
+	private final java.lang.String i18nCaptionKey;
+	
+	private WorkflowEventType(java.lang.String i18nCaptionKey)
 	{
-		this.captions = new java.util.HashMap<>();
-		for (java.lang.String[] captionString : captionStrings) {
-			captions.put(captionString[0], captionString[1]);
-		}
+		this.i18nCaptionKey = i18nCaptionKey;
 	}
 
 	public java.lang.String getCaption(java.lang.String languageCode)
 	{
-		return captions.getOrDefault(languageCode, "en_US");
+		String caption = com.mendix.core.Core.getInternationalizedString(languageCode, i18nCaptionKey);
+		return caption.isEmpty() ? getCaption() : caption;
 	}
 
 	public java.lang.String getCaption()
 	{
-		return captions.get("en_US");
+		return com.mendix.core.Core.getInternationalizedString("en_US", i18nCaptionKey);
 	}
 }

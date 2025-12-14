@@ -53,7 +53,7 @@ public class XASInstance implements com.mendix.systemwideinterfaces.core.IEntity
 		if (xASInstanceMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, xASInstanceMendixObject.getType())) {
+		if (!xASInstanceMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 

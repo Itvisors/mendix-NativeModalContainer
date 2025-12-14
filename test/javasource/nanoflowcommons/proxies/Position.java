@@ -47,7 +47,7 @@ public class Position implements com.mendix.systemwideinterfaces.core.IEntityPro
 		if (positionMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, positionMendixObject.getType())) {
+		if (!positionMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 

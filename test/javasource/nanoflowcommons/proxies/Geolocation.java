@@ -53,7 +53,7 @@ public class Geolocation implements com.mendix.systemwideinterfaces.core.IEntity
 		if (geolocationMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, geolocationMendixObject.getType())) {
+		if (!geolocationMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 

@@ -47,7 +47,7 @@ public class HttpMessage implements com.mendix.systemwideinterfaces.core.IEntity
 		if (httpMessageMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, httpMessageMendixObject.getType())) {
+		if (!httpMessageMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 
@@ -64,10 +64,10 @@ public class HttpMessage implements com.mendix.systemwideinterfaces.core.IEntity
 	 */
 	public static system.proxies.HttpMessage initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
-		if (com.mendix.core.Core.isSubClassOf("System.HttpRequest", mendixObject.getType())) {
+		if (mendixObject.isInstanceOf("System.HttpRequest")) {
 			return system.proxies.HttpRequest.initialize(context, mendixObject);
 		}
-		if (com.mendix.core.Core.isSubClassOf("System.HttpResponse", mendixObject.getType())) {
+		if (mendixObject.isInstanceOf("System.HttpResponse")) {
 			return system.proxies.HttpResponse.initialize(context, mendixObject);
 		}
 		return new system.proxies.HttpMessage(context, mendixObject);

@@ -49,7 +49,7 @@ public class WorkflowDefinition implements com.mendix.systemwideinterfaces.core.
 		if (workflowDefinitionMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, workflowDefinitionMendixObject.getType())) {
+		if (!workflowDefinitionMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 

@@ -51,7 +51,7 @@ public class TaskQueueToken implements com.mendix.systemwideinterfaces.core.IEnt
 		if (taskQueueTokenMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, taskQueueTokenMendixObject.getType())) {
+		if (!taskQueueTokenMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 

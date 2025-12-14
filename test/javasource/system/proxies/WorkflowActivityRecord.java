@@ -69,7 +69,7 @@ public class WorkflowActivityRecord implements com.mendix.systemwideinterfaces.c
 		if (workflowActivityRecordMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, workflowActivityRecordMendixObject.getType())) {
+		if (!workflowActivityRecordMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 

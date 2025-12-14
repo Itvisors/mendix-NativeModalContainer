@@ -9,30 +9,28 @@ package system.proxies;
  */
 public enum WorkflowActivityExecutionState
 {
-	Created(new java.lang.String[][] { new java.lang.String[] { "en_US", "Created" } }),
-	InProgress(new java.lang.String[][] { new java.lang.String[] { "en_US", "In Progress" } }),
-	Completed(new java.lang.String[][] { new java.lang.String[] { "en_US", "Completed" } }),
-	Paused(new java.lang.String[][] { new java.lang.String[] { "en_US", "Paused" } }),
-	Aborted(new java.lang.String[][] { new java.lang.String[] { "en_US", "Aborted" } }),
-	Failed(new java.lang.String[][] { new java.lang.String[] { "en_US", "Failed" } });
+	Created("ef3fddd0-a554-415e-bc8a-cd4523ed8da5"),
+	InProgress("590aa6e3-a410-41cf-b6a7-8a0bb46def95"),
+	Completed("e4e2309e-c3bb-4dd7-9d8c-fb727097c548"),
+	Paused("304f1b96-456c-4e76-b89b-3badb7371d1d"),
+	Aborted("11c68837-b675-4455-88ba-74151aedd948"),
+	Failed("a21eeafe-eb4f-47a1-bd30-6cc09850bbdc");
 
-	private final java.util.Map<java.lang.String, java.lang.String> captions;
-
-	private WorkflowActivityExecutionState(java.lang.String[][] captionStrings)
+	private final java.lang.String i18nCaptionKey;
+	
+	private WorkflowActivityExecutionState(java.lang.String i18nCaptionKey)
 	{
-		this.captions = new java.util.HashMap<>();
-		for (java.lang.String[] captionString : captionStrings) {
-			captions.put(captionString[0], captionString[1]);
-		}
+		this.i18nCaptionKey = i18nCaptionKey;
 	}
 
 	public java.lang.String getCaption(java.lang.String languageCode)
 	{
-		return captions.getOrDefault(languageCode, "en_US");
+		String caption = com.mendix.core.Core.getInternationalizedString(languageCode, i18nCaptionKey);
+		return caption.isEmpty() ? getCaption() : caption;
 	}
 
 	public java.lang.String getCaption()
 	{
-		return captions.get("en_US");
+		return com.mendix.core.Core.getInternationalizedString("en_US", i18nCaptionKey);
 	}
 }

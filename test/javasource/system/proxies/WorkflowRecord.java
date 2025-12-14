@@ -56,7 +56,7 @@ public class WorkflowRecord implements com.mendix.systemwideinterfaces.core.IEnt
 		if (workflowRecordMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, workflowRecordMendixObject.getType())) {
+		if (!workflowRecordMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 

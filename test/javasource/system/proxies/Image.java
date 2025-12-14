@@ -50,7 +50,7 @@ public class Image extends system.proxies.FileDocument
 	protected Image(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject imageMendixObject)
 	{
 		super(context, imageMendixObject);
-		if (!com.mendix.core.Core.isSubClassOf(entityName, imageMendixObject.getType())) {
+		if (!imageMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 	}

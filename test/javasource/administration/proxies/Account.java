@@ -54,7 +54,7 @@ public class Account extends system.proxies.User
 	protected Account(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject accountMendixObject)
 	{
 		super(context, accountMendixObject);
-		if (!com.mendix.core.Core.isSubClassOf(entityName, accountMendixObject.getType())) {
+		if (!accountMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 	}

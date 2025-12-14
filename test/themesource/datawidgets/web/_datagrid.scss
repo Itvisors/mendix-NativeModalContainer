@@ -2,36 +2,12 @@
 @import "export-progress";
 @import "pseudo-modal";
 
-$dg-background-color: #fff;
-$dg-icon-color: #606671;
-$dg-icon-size: 14px;
-$dg-pagination-button-color: #3b4251;
-$dg-pagination-caption-color: #0a1325;
-$dragging-color-effect: rgba(10, 19, 37, 0.8);
-$dg-dragging-effect-size: 4px;
-
-$dg-grid-bg-striped: #fafafb;
-$dg-grid-bg-hover: #f5f6f6;
-$dg-spacing-small: 8px;
-$dg-spacing-medium: 16px;
-$dg-spacing-large: 24px;
-$dg-grid-border-color: #ced0d3;
-
-$dg-brand-primary: #264ae5;
-$dg-brand-light: #e6eaff;
-$dg-grid-selected-row-background: $dg-brand-light;
-$dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2d2d2 100%);
+$root: ".widget-datagrid";
 
 .table {
     position: relative;
     border-width: 0;
-    background-color: var(--bg-color-secondary, $dg-background-color);
-
-    /* Table Content */
-    .table-content {
-        display: grid;
-        position: relative;
-    }
+    background-color: var(--bg-color-secondary, $bg-color-secondary);
 
     /* Pseudo Row, to target this object please use .tr > .td or .tr > div */
     .tr {
@@ -39,18 +15,21 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
     }
 
     /* Column Header */
-    .th {
-        display: flex;
-        align-items: flex-start;
-        font-weight: 600;
-        background-color: var(--bg-color-secondary, $dg-background-color);
-        border-width: 0;
-        border-color: var(--grid-border-color, $dg-grid-border-color);
-        padding: var(--spacing-medium, $dg-spacing-medium);
-        top: 0;
-        min-width: 0;
-        position: relative;
+    @at-root {
+        :where(.widget-datagrid-grid .th) {
+            display: flex;
+            align-items: flex-start;
+            background-color: var(--bg-color-secondary, $bg-color-secondary);
+            border-width: 0;
+            border-color: var(--grid-border-color, $grid-border-color);
+            padding: var(--spacing-medium, $spacing-medium);
+            top: 0;
+            min-width: 0;
+            position: relative;
+        }
+    }
 
+    .th {
         &.dragging {
             opacity: 0.5;
             &.dragging-over-self {
@@ -64,7 +43,7 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
             position: absolute;
             top: 0;
             height: 100%;
-            width: var(--spacing-smaller, $dg-dragging-effect-size);
+            width: var(--spacing-smaller, $spacing-smaller);
             background-color: $dragging-color-effect;
 
             z-index: 1;
@@ -98,12 +77,13 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
             padding: 0 4px;
             align-self: stretch;
             cursor: col-resize;
+            margin-right: -12px;
 
             &:hover .column-resizer-bar {
-                background-color: var(--brand-primary, $dg-brand-primary);
+                background-color: var(--brand-primary, $brand-primary);
             }
             &:active .column-resizer-bar {
-                background-color: var(--brand-primary, $dg-brand-primary);
+                background-color: var(--brand-primary, $brand-primary);
             }
 
             .column-resizer-bar {
@@ -129,9 +109,10 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
 
         /* Header text */
         .column-header {
-            margin: 1px 1px calc((-1 * var(--spacing-smaller, $dg-dragging-effect-size)) + 2px);
+            margin: 1px 1px calc((-1 * var(--spacing-smaller, $spacing-smaller)) + 2px);
             display: flex;
             align-items: baseline;
+            font-weight: 600;
 
             span {
                 min-width: 0;
@@ -144,9 +125,9 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
 
             svg {
                 margin-left: 8px;
-                flex: 0 0 var(--btn-font-size, $dg-icon-size);
-                color: var(--gray-dark, $dg-icon-color);
-                height: var(--btn-font-size, $dg-icon-size);
+                flex: 0 0 var(--btn-font-size, $btn-font-size);
+                color: var(--gray-dark, $gray-dark);
+                height: var(--btn-font-size, $btn-font-size);
                 align-self: center;
             }
 
@@ -155,7 +136,7 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
             }
 
             &:focus-visible {
-                outline: 1px solid var(--brand-primary, $dg-brand-primary);
+                outline: 1px solid var(--brand-primary, $brand-primary);
             }
         }
 
@@ -163,17 +144,8 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
         .filter {
             display: flex;
             margin-top: 4px;
-            input:not([type="checkbox"]) {
-                font-weight: normal;
-                flex-grow: 1;
-                width: 100%;
-            }
             > .form-group {
                 margin-bottom: 0;
-            }
-            > .form-control {
-                flex: unset;
-                min-width: unset;
             }
         }
     }
@@ -182,7 +154,7 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
     &:has(.th .column-container .filter:not(:empty)) {
         .th {
             &.column-selector {
-                padding: var(--spacing-medium, $dg-spacing-medium) 0;
+                padding: var(--spacing-medium, $spacing-medium) 0;
             }
             /*adjust filter-selector icon to be mid-bottom aligned */
             .column-selector-content {
@@ -193,7 +165,7 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
             /*adjust checkbox toggle to be mid-bottom aligned */
             &.widget-datagrid-col-select {
                 align-items: flex-end;
-                padding-bottom: calc(var(--spacing-medium, $dg-spacing-medium) + 11px);
+                padding-bottom: calc(var(--spacing-medium, $spacing-medium) + 11px);
             }
         }
     }
@@ -205,7 +177,7 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
         /* Column content */
         .column-selector-content {
             align-self: center;
-            padding-right: var(--spacing-medium, $dg-spacing-medium);
+            padding-right: var(--spacing-medium, $spacing-medium);
             /* Button containing the eye icon */
             .column-selector-button {
                 $icon-margin: 7px;
@@ -215,8 +187,8 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
                 padding: 0;
                 margin: 0;
 
-                height: calc(var(--btn-font-size, $dg-icon-size) + $icon-margin * 2 + $icon-slack-size);
-                width: calc(var(--btn-font-size, $dg-icon-size) + $icon-margin * 2 + $icon-slack-size);
+                height: calc(var(--btn-font-size, $btn-font-size) + $icon-margin * 2 + $icon-slack-size);
+                width: calc(var(--btn-font-size, $btn-font-size) + $icon-margin * 2 + $icon-slack-size);
 
                 svg {
                     margin: $icon-margin;
@@ -229,8 +201,11 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
                 right: 0;
                 margin: 8px;
                 padding: 0 16px;
-                background: var(--bg-color-secondary, $dg-background-color);
+                background: var(--bg-color-secondary, $bg-color-secondary);
                 z-index: 102;
+                overflow-y: auto;
+                width: fit-content;
+                max-width: 500px;
                 border-radius: 3px;
                 border: 1px solid transparent;
                 list-style-type: none;
@@ -246,6 +221,8 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
                         margin: 8px;
                         font-weight: normal;
                         white-space: nowrap;
+                        overflow-x: hidden;
+                        text-overflow: ellipsis;
                     }
                 }
             }
@@ -257,10 +234,10 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: var(--spacing-medium, $dg-spacing-medium);
+        padding: var(--spacing-medium, $spacing-medium);
         border-style: solid;
         border-width: 0;
-        border-color: var(--grid-border-color, $dg-grid-border-color);
+        border-color: var(--grid-border-color, $grid-border-color);
         border-bottom-width: 1px;
         min-width: 0;
 
@@ -273,7 +250,7 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
             outline-width: 1px;
             outline-style: solid;
             outline-offset: -1px;
-            outline-color: var(--brand-primary, $dg-brand-primary);
+            outline-color: var(--brand-primary, $brand-primary);
         }
 
         &.clickable {
@@ -323,26 +300,32 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
     }
 }
 
+:where(.table .th .filter input:not([type="checkbox"])) {
+    font-weight: normal;
+    flex-grow: 1;
+    width: 100%;
+}
+
 .pagination-bar {
     display: flex;
     justify-content: flex-end;
     white-space: nowrap;
     align-items: baseline;
     margin: 16px;
-    color: $dg-pagination-caption-color;
+    color: $pagination-caption-color;
 
     .paging-status {
-        padding: 0 8px 8px;
+        padding: 0 8px 0;
     }
 
     .pagination-button {
         padding: 6px;
-        color: var(--gray-darker, $dg-pagination-button-color);
+        color: var(--gray-darker, $gray-darker);
         border-color: transparent;
         background-color: transparent;
 
         &:hover {
-            color: var(--brand-primary, $dg-brand-primary);
+            color: var(--brand-primary, $brand-primary);
             border-color: transparent;
             background-color: transparent;
         }
@@ -357,7 +340,7 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
         }
 
         &:focus-visible {
-            outline: 1px solid var(--brand-primary, $dg-brand-primary);
+            outline: 1px solid var(--brand-primary, $brand-primary);
         }
     }
     .pagination-icon {
@@ -376,19 +359,17 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
     right: 0;
     margin: 8px 0;
     padding: 0 16px;
-    background: var(--bg-color-secondary, $dg-background-color);
+    background: var(--bg-color-secondary, $bg-color-secondary);
     z-index: 102;
+    overflow-y: auto;
+    width: fit-content;
+    max-width: 500px;
     border-radius: 3px;
     border: 1px solid transparent;
     list-style-type: none;
     -webkit-box-shadow: 0 2px 20px 1px rgba(32, 43, 54, 0.08);
     -moz-box-shadow: 0 2px 20px 1px rgba(32, 43, 54, 0.08);
     box-shadow: 0 2px 20px 1px rgba(32, 43, 54, 0.08);
-
-    &.overflow {
-        height: 250px;
-        overflow-y: scroll;
-    }
 
     li {
         display: flex;
@@ -399,16 +380,46 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
             margin: 8px;
             font-weight: normal;
             white-space: nowrap;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
         }
     }
 }
 
-.widget-datagrid {
+#{$root} {
     position: relative;
+
+    &-grid {
+        &.table {
+            display: grid !important;
+            min-width: fit-content;
+            margin-bottom: 0;
+        }
+    }
+
+    &-top-bar {
+        container: widget-datagrid-header / inline-size;
+    }
+
+    &-content {
+        overflow-x: auto;
+    }
+
+    &-grid-head {
+        display: contents;
+    }
+
+    &-grid-body {
+        display: contents;
+    }
+
+    &-footer {
+        container: widget-datagrid-footer / inline-size;
+    }
 
     &.widget-datagrid-selection-method-click {
         .tr.tr-selected .td {
-            background-color: $dg-grid-selected-row-background;
+            background-color: $grid-selected-row-background;
         }
     }
 
@@ -417,7 +428,8 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
         align-items: center;
     }
 
-    &-exporting {
+    &-exporting,
+    &-selecting-all-pages {
         .widget-datagrid-top-bar,
         .widget-datagrid-header,
         .widget-datagrid-content,
@@ -434,16 +446,13 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
         outline-offset: 0;
     }
 
-    &-content {
-        overflow-y: auto;
-    }
-
     &-loader-container {
         align-items: center;
         background-color: rgba(255, 255, 255, 1);
         display: flex;
         height: 400px;
         justify-content: center;
+        grid-column: 1/-1;
     }
 
     &-skeleton,
@@ -457,15 +466,19 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
     }
 
     &-skeleton {
-        padding: 6px var(--dropdown-outer-padding, 10px);
+        padding: 2px var(--dropdown-outer-padding, 0);
+        overflow: hidden;
+        flex: 1;
 
         &-loader {
             animation: skeleton-loading 1s linear infinite alternate;
-            background: var(--dg-skeleton-background, $dg-skeleton-background);
+            background: var(--skeleton-background, $skeleton-background);
             background-size: 300% 100%;
             border-radius: 4px;
             height: 16px;
-            width: 148px;
+            width: 100%;
+            min-width: 32px;
+            max-width: 148px;
 
             &-small {
                 margin-right: 8px;
@@ -486,7 +499,7 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
             --widget-combobox-spinner-loader: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
             animation: rotate 1s infinite linear;
             aspect-ratio: 1;
-            background: var(--brand-primary, $dg-brand-primary);
+            background: var(--brand-primary, $brand-primary);
             border-radius: 50%;
             mask: var(--widget-combobox-spinner-loader);
             mask-composite: subtract;
@@ -513,7 +526,90 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
 
 .widget-datagrid .widget-datagrid-load-more {
     display: block !important;
-    margin: 0 auto;
+    margin: var(--spacing-small, 8px) 0;
+}
+
+.infinite-loading.widget-datagrid-grid-body {
+    // when virtual scroll is enabled we make area that holds rows scrollable
+    // (while the area that holds column headers still stays in place)
+    overflow-y: auto;
+}
+
+.widget-datagrid-grid-head,
+.widget-datagrid-grid-body {
+    // this element has to position their children (columns or headers)
+    // as grid and have those aligned with the parent grid
+    display: grid;
+    // this property makes sure we align our own grid columns
+    // to the columns defined in the global grid
+    grid-template-columns: subgrid;
+
+    // ensure that we cover all columns of original top level grid
+    // so our own columns get aligned with the parent
+    grid-column: 1 / -1;
+}
+
+:where(#{$root}-paging-bottom, #{$root}-padding-top) {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+:where(#{$root}-pb-end, #{$root}-tb-end) {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+:where(#{$root}-pb-start, #{$root}-tb-start, #{$root}-pb-end, #{$root}-tb-end, #{$root}-pb-middle) {
+    flex-grow: 1;
+    flex-basis: 33.33%;
+}
+
+:where(#{$root}-pb-middle) {
+    display: flex;
+    justify-content: center;
+}
+
+:where(#{$root}-pb-start, #{$root}-tb-start) {
+    display: flex;
+    align-items: center;
+}
+
+#{$root}-btn-link {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: var(--link-color);
+    padding: 0.3em 0.5em;
+    border-radius: 6px;
+    display: inline-block;
+    white-space: nowrap;
+
+    &:hover,
+    &:focus-visible {
+        background-color: var(--brand-primary-50, #e6e7f2);
+    }
+}
+
+:where(#{$root}-selection-counter) {
+    display: flex;
+    align-items: center;
+    height: 54px;
+    padding: var(--spacing-small) var(--spacing-medium);
+}
+
+:where(#{$root}-select-all-bar) {
+    grid-column: 1 / -1;
+    background-color: #f0f1f2;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    padding: var(--spacing-smaller, 8px) var(--spacing-medium, 16px);
+
+    #{$root}-spinner {
+        padding: 6.2px;
+    }
 }
 
 @keyframes skeleton-loading {
@@ -525,5 +621,25 @@ $dg-skeleton-background: linear-gradient(90deg, rgba(194, 194, 194, 0.2) 0%, #d2
 @keyframes rotate {
     to {
         transform: rotate(1turn);
+    }
+}
+
+@container widget-datagrid-footer (width < 500px) {
+    #{$root}-paging-bottom {
+        flex-direction: column;
+        :where(#{$root}-pb-start, #{$root}-pb-end, #{$root}-pb-middle) {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+}
+
+@container widget-datagrid-header (width < 500px) {
+    #{$root}-padding-top {
+        flex-direction: column-reverse;
+        :where(#{$root}-tb-start, #{$root}-tb-end) {
+            width: 100%;
+            justify-content: center;
+        }
     }
 }

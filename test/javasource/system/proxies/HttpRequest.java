@@ -42,7 +42,7 @@ public class HttpRequest extends system.proxies.HttpMessage
 	protected HttpRequest(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject httpRequestMendixObject)
 	{
 		super(context, httpRequestMendixObject);
-		if (!com.mendix.core.Core.isSubClassOf(entityName, httpRequestMendixObject.getType())) {
+		if (!httpRequestMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 	}

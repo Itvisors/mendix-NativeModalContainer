@@ -49,7 +49,7 @@ public class WorkflowUserTaskOutcome implements com.mendix.systemwideinterfaces.
 		if (workflowUserTaskOutcomeMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, workflowUserTaskOutcomeMendixObject.getType())) {
+		if (!workflowUserTaskOutcomeMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 

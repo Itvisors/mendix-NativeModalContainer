@@ -65,7 +65,7 @@ public class QueuedTask implements com.mendix.systemwideinterfaces.core.IEntityP
 		if (queuedTaskMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, queuedTaskMendixObject.getType())) {
+		if (!queuedTaskMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 
