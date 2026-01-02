@@ -31,7 +31,8 @@ public class WorkflowUserTask implements com.mendix.systemwideinterfaces.core.IE
 		WorkflowUserTask_TargetUsers("System.WorkflowUserTask_TargetUsers"),
 		WorkflowUserTask_Assignees("System.WorkflowUserTask_Assignees"),
 		WorkflowUserTask_Workflow("System.WorkflowUserTask_Workflow"),
-		WorkflowUserTask_WorkflowUserTaskDefinition("System.WorkflowUserTask_WorkflowUserTaskDefinition");
+		WorkflowUserTask_WorkflowUserTaskDefinition("System.WorkflowUserTask_WorkflowUserTaskDefinition"),
+		WorkflowUserTask_TargetGroups("System.WorkflowUserTask_TargetGroups");
 
 		private final java.lang.String metaName;
 
@@ -594,6 +595,58 @@ public class WorkflowUserTask implements com.mendix.systemwideinterfaces.core.IE
 		} else {
 			getMendixObject().setValue(context, MemberNames.WorkflowUserTask_WorkflowUserTaskDefinition.toString(), workflowusertask_workflowusertaskdefinition.getMendixObject().getId());
 		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of WorkflowUserTask_TargetGroups
+	 */
+	public final java.util.List<system.proxies.WorkflowGroup> getWorkflowUserTask_TargetGroups() throws com.mendix.core.CoreException
+	{
+		return getWorkflowUserTask_TargetGroups(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of WorkflowUserTask_TargetGroups
+	 * @throws com.mendix.core.CoreException
+	 */
+	@SuppressWarnings("unchecked")
+	public final java.util.List<system.proxies.WorkflowGroup> getWorkflowUserTask_TargetGroups(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		java.util.List<system.proxies.WorkflowGroup> result = new java.util.ArrayList<>();
+		Object valueObject = getMendixObject().getValue(context, MemberNames.WorkflowUserTask_TargetGroups.toString());
+		if (valueObject == null) {
+			return result;
+		}
+		for (com.mendix.systemwideinterfaces.core.IMendixObject mendixObject : com.mendix.core.Core.retrieveIdList(context, (java.util.List<com.mendix.systemwideinterfaces.core.IMendixIdentifier>) valueObject)) {
+			result.add(system.proxies.WorkflowGroup.initialize(context, mendixObject));
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of WorkflowUserTask_TargetGroups
+	 * @param workflowusertask_targetgroups
+	 */
+	public final void setWorkflowUserTask_TargetGroups(java.util.List<system.proxies.WorkflowGroup> workflowusertask_targetgroups)
+	{
+		setWorkflowUserTask_TargetGroups(getContext(), workflowusertask_targetgroups);
+	}
+
+	/**
+	 * Set value of WorkflowUserTask_TargetGroups
+	 * @param context
+	 * @param workflowusertask_targetgroups
+	 */
+	public final void setWorkflowUserTask_TargetGroups(com.mendix.systemwideinterfaces.core.IContext context, java.util.List<system.proxies.WorkflowGroup> workflowusertask_targetgroups)
+	{
+		var identifiers = workflowusertask_targetgroups
+			.stream()
+			.map(proxyObject -> proxyObject.getMendixObject().getId())
+			.collect(java.util.stream.Collectors.toList());
+		
+		getMendixObject().setValue(context, MemberNames.WorkflowUserTask_TargetGroups.toString(), identifiers);
 	}
 
 	@java.lang.Override
