@@ -32,6 +32,10 @@ public enum WorkflowEventType
 	CallWorkflowEnded("33b6a336-edb6-40df-9480-589a6a55c0b3"),
 	CallMicroflowStarted("69f2262b-a8bb-451a-8359-e7e2d02092db"),
 	CallMicroflowEnded("09b36ea3-9a54-4960-86d6-a05ba3c60813"),
+	AIAgentTaskStarted("37908085-c75f-47d8-a40a-74ccdf2d2bb2"),
+	AIAgentTaskEnded("c965c773-9d1d-47ed-8326-3d1972d53625"),
+	NotificationStarted("b8966e44-4581-4bbf-bdce-352f59885853"),
+	NotificationEnded("001ad3fc-4bf9-4b2a-ada1-f72efb07fec6"),
 	WaitForNotificationStarted("f7182f3a-dd4a-4bf0-9365-b7351aa00693"),
 	WaitForNotificationEnded("c58ae75a-d617-4935-80bd-1f48afbffa24"),
 	WaitForTimerStarted("5277eb41-8d1e-4014-8b9e-2a05f57d272e"),
@@ -40,7 +44,11 @@ public enum WorkflowEventType
 	MultiUserTaskOutcomeSelected("f024ad0a-e845-4926-8623-106bb4cdc496"),
 	UserTaskEnded("ffca9fd8-d7e1-4992-87b9-613bb947b773"),
 	NonInterruptingTimerEventExecuted("a7735eae-518a-4e24-b81f-1f2f34378c1f"),
-	InterruptingTimerEventExecuted("c209cca5-c73b-4205-a7ea-755b189e7db0");
+	InterruptingTimerEventExecuted("c209cca5-c73b-4205-a7ea-755b189e7db0"),
+	NonInterruptingNotificationEventSubProcessStartExecuted("9eb6782f-a50d-44c6-aa97-405c719886f8"),
+	InterruptingNotificationEventSubProcessStartExecuted("ee312f08-3d13-4e0d-9349-44bc0fe52835"),
+	NonInterruptingNotificationEventExecuted("1b537ae6-3f98-4650-a507-bfdaa94d6503"),
+	InterruptingNotificationEventExecuted("36c775ce-15b9-4709-a030-5e1c98aa889c");
 
 	private final java.lang.String i18nCaptionKey;
 	

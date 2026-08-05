@@ -36,7 +36,8 @@ public class WorkflowEndedUserTask implements com.mendix.systemwideinterfaces.co
 		WorkflowEndedUserTask_TargetUsers("System.WorkflowEndedUserTask_TargetUsers"),
 		WorkflowEndedUserTask_WorkflowUserTaskDefinition("System.WorkflowEndedUserTask_WorkflowUserTaskDefinition"),
 		WorkflowEndedUserTask_Workflow("System.WorkflowEndedUserTask_Workflow"),
-		WorkflowEndedUserTask_TargetGroups("System.WorkflowEndedUserTask_TargetGroups");
+		WorkflowEndedUserTask_TargetGroups("System.WorkflowEndedUserTask_TargetGroups"),
+		WorkflowEndedUserTask_WorkflowSubProcess("System.WorkflowEndedUserTask_WorkflowSubProcess");
 
 		private final java.lang.String metaName;
 
@@ -687,6 +688,53 @@ public class WorkflowEndedUserTask implements com.mendix.systemwideinterfaces.co
 			.collect(java.util.stream.Collectors.toList());
 		
 		getMendixObject().setValue(context, MemberNames.WorkflowEndedUserTask_TargetGroups.toString(), identifiers);
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of WorkflowEndedUserTask_WorkflowSubProcess
+	 */
+	public final system.proxies.WorkflowSubProcess getWorkflowEndedUserTask_WorkflowSubProcess() throws com.mendix.core.CoreException
+	{
+		return getWorkflowEndedUserTask_WorkflowSubProcess(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of WorkflowEndedUserTask_WorkflowSubProcess
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final system.proxies.WorkflowSubProcess getWorkflowEndedUserTask_WorkflowSubProcess(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		system.proxies.WorkflowSubProcess result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.WorkflowEndedUserTask_WorkflowSubProcess.toString());
+		if (identifier != null) {
+			result = system.proxies.WorkflowSubProcess.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of WorkflowEndedUserTask_WorkflowSubProcess
+	 * @param workflowendedusertask_workflowsubprocess
+	 */
+	public final void setWorkflowEndedUserTask_WorkflowSubProcess(system.proxies.WorkflowSubProcess workflowendedusertask_workflowsubprocess)
+	{
+		setWorkflowEndedUserTask_WorkflowSubProcess(getContext(), workflowendedusertask_workflowsubprocess);
+	}
+
+	/**
+	 * Set value of WorkflowEndedUserTask_WorkflowSubProcess
+	 * @param context
+	 * @param workflowendedusertask_workflowsubprocess
+	 */
+	public final void setWorkflowEndedUserTask_WorkflowSubProcess(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.WorkflowSubProcess workflowendedusertask_workflowsubprocess)
+	{
+		if (workflowendedusertask_workflowsubprocess == null) {
+			getMendixObject().setValue(context, MemberNames.WorkflowEndedUserTask_WorkflowSubProcess.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.WorkflowEndedUserTask_WorkflowSubProcess.toString(), workflowendedusertask_workflowsubprocess.getMendixObject().getId());
+		}
 	}
 
 	@java.lang.Override

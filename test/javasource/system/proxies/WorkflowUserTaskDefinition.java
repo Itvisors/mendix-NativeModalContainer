@@ -22,7 +22,8 @@ public class WorkflowUserTaskDefinition implements com.mendix.systemwideinterfac
 	{
 		Name("Name"),
 		IsObsolete("IsObsolete"),
-		WorkflowUserTaskDefinition_WorkflowDefinition("System.WorkflowUserTaskDefinition_WorkflowDefinition");
+		WorkflowUserTaskDefinition_WorkflowDefinition("System.WorkflowUserTaskDefinition_WorkflowDefinition"),
+		WorkflowUserTaskDefinition_WorkflowSubProcessDefinition("System.WorkflowUserTaskDefinition_WorkflowSubProcessDefinition");
 
 		private final java.lang.String metaName;
 
@@ -199,6 +200,53 @@ public class WorkflowUserTaskDefinition implements com.mendix.systemwideinterfac
 			getMendixObject().setValue(context, MemberNames.WorkflowUserTaskDefinition_WorkflowDefinition.toString(), null);
 		} else {
 			getMendixObject().setValue(context, MemberNames.WorkflowUserTaskDefinition_WorkflowDefinition.toString(), workflowusertaskdefinition_workflowdefinition.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of WorkflowUserTaskDefinition_WorkflowSubProcessDefinition
+	 */
+	public final system.proxies.WorkflowSubProcessDefinition getWorkflowUserTaskDefinition_WorkflowSubProcessDefinition() throws com.mendix.core.CoreException
+	{
+		return getWorkflowUserTaskDefinition_WorkflowSubProcessDefinition(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of WorkflowUserTaskDefinition_WorkflowSubProcessDefinition
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final system.proxies.WorkflowSubProcessDefinition getWorkflowUserTaskDefinition_WorkflowSubProcessDefinition(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		system.proxies.WorkflowSubProcessDefinition result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.WorkflowUserTaskDefinition_WorkflowSubProcessDefinition.toString());
+		if (identifier != null) {
+			result = system.proxies.WorkflowSubProcessDefinition.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of WorkflowUserTaskDefinition_WorkflowSubProcessDefinition
+	 * @param workflowusertaskdefinition_workflowsubprocessdefinition
+	 */
+	public final void setWorkflowUserTaskDefinition_WorkflowSubProcessDefinition(system.proxies.WorkflowSubProcessDefinition workflowusertaskdefinition_workflowsubprocessdefinition)
+	{
+		setWorkflowUserTaskDefinition_WorkflowSubProcessDefinition(getContext(), workflowusertaskdefinition_workflowsubprocessdefinition);
+	}
+
+	/**
+	 * Set value of WorkflowUserTaskDefinition_WorkflowSubProcessDefinition
+	 * @param context
+	 * @param workflowusertaskdefinition_workflowsubprocessdefinition
+	 */
+	public final void setWorkflowUserTaskDefinition_WorkflowSubProcessDefinition(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.WorkflowSubProcessDefinition workflowusertaskdefinition_workflowsubprocessdefinition)
+	{
+		if (workflowusertaskdefinition_workflowsubprocessdefinition == null) {
+			getMendixObject().setValue(context, MemberNames.WorkflowUserTaskDefinition_WorkflowSubProcessDefinition.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.WorkflowUserTaskDefinition_WorkflowSubProcessDefinition.toString(), workflowusertaskdefinition_workflowsubprocessdefinition.getMendixObject().getId());
 		}
 	}
 

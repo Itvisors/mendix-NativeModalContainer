@@ -1,5 +1,4 @@
 import { Modal, View } from "react-native";
-import { createElement } from "react";
 
 export function NativeModalContainer(props) {
     const { modalVisible } = props;

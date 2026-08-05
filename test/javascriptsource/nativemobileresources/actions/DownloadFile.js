@@ -54,7 +54,7 @@ export async function DownloadFile(file, openWithOS) {
     const fileName = file.get("Name");
     const sanitizedFileName = sanitizeFileName(fileName);
     const baseDir = Platform.OS === "ios" ? dirs.DocumentDir : dirs.DownloadDir;
-    const filePath = mx.data.getDocumentUrl(file.getGuid(), Number(file.get("changedDate")));
+    const filePath = await mx.data.getDocumentUrl(file.getGuid(), Number(file.get("changedDate")));
     let accessiblePath;
     if (Platform.OS === "ios") {
         accessiblePath = await getUniqueFilePath(baseDir, sanitizedFileName);

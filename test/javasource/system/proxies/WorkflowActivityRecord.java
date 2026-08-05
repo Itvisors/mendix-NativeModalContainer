@@ -21,6 +21,7 @@ public class WorkflowActivityRecord implements com.mendix.systemwideinterfaces.c
 	public enum MemberNames
 	{
 		ModelGUID("ModelGUID"),
+		SubProcessKey("SubProcessKey"),
 		ActivityKey("ActivityKey"),
 		PreviousActivityKey("PreviousActivityKey"),
 		ActivityType("ActivityType"),
@@ -37,14 +38,15 @@ public class WorkflowActivityRecord implements com.mendix.systemwideinterfaces.c
 		TaskRequiredUsers("TaskRequiredUsers"),
 		TaskKey("TaskKey"),
 		Reason("Reason"),
-		WorkflowActivityRecord_PreviousActivity("System.WorkflowActivityRecord_PreviousActivity"),
 		WorkflowActivityRecord_Actor("System.WorkflowActivityRecord_Actor"),
 		WorkflowActivityRecord_SubWorkflow("System.WorkflowActivityRecord_SubWorkflow"),
 		WorkflowActivityRecord_UserTask("System.WorkflowActivityRecord_UserTask"),
 		WorkflowActivityRecord_WorkflowUserTaskDefinition("System.WorkflowActivityRecord_WorkflowUserTaskDefinition"),
 		WorkflowActivityRecord_TaskTargetedUsers("System.WorkflowActivityRecord_TaskTargetedUsers"),
 		WorkflowActivityRecord_TaskAssignedUsers("System.WorkflowActivityRecord_TaskAssignedUsers"),
-		WorkflowActivityRecord_TaskTargetedGroups("System.WorkflowActivityRecord_TaskTargetedGroups");
+		WorkflowActivityRecord_TaskTargetedGroups("System.WorkflowActivityRecord_TaskTargetedGroups"),
+		WorkflowActivityRecord_WorkflowSubProcessDefinition("System.WorkflowActivityRecord_WorkflowSubProcessDefinition"),
+		WorkflowActivityRecord_WorkflowSubProcess("System.WorkflowActivityRecord_WorkflowSubProcess");
 
 		private final java.lang.String metaName;
 
@@ -130,6 +132,42 @@ public class WorkflowActivityRecord implements com.mendix.systemwideinterfaces.c
 	public final void setModelGUID(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String modelguid)
 	{
 		getMendixObject().setValue(context, MemberNames.ModelGUID.toString(), modelguid);
+	}
+
+	/**
+	 * @return value of SubProcessKey
+	 */
+	public final java.lang.String getSubProcessKey()
+	{
+		return getSubProcessKey(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of SubProcessKey
+	 */
+	public final java.lang.String getSubProcessKey(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.SubProcessKey.toString());
+	}
+
+	/**
+	 * Set value of SubProcessKey
+	 * @param subprocesskey
+	 */
+	public final void setSubProcessKey(java.lang.String subprocesskey)
+	{
+		setSubProcessKey(getContext(), subprocesskey);
+	}
+
+	/**
+	 * Set value of SubProcessKey
+	 * @param context
+	 * @param subprocesskey
+	 */
+	public final void setSubProcessKey(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String subprocesskey)
+	{
+		getMendixObject().setValue(context, MemberNames.SubProcessKey.toString(), subprocesskey);
 	}
 
 	/**
@@ -737,53 +775,6 @@ public class WorkflowActivityRecord implements com.mendix.systemwideinterfaces.c
 
 	/**
 	 * @throws com.mendix.core.CoreException
-	 * @return value of WorkflowActivityRecord_PreviousActivity
-	 */
-	public final system.proxies.WorkflowActivityRecord getWorkflowActivityRecord_PreviousActivity() throws com.mendix.core.CoreException
-	{
-		return getWorkflowActivityRecord_PreviousActivity(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of WorkflowActivityRecord_PreviousActivity
-	 * @throws com.mendix.core.CoreException
-	 */
-	public final system.proxies.WorkflowActivityRecord getWorkflowActivityRecord_PreviousActivity(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
-	{
-		system.proxies.WorkflowActivityRecord result = null;
-		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.WorkflowActivityRecord_PreviousActivity.toString());
-		if (identifier != null) {
-			result = system.proxies.WorkflowActivityRecord.load(context, identifier);
-		}
-		return result;
-	}
-
-	/**
-	 * Set value of WorkflowActivityRecord_PreviousActivity
-	 * @param workflowactivityrecord_previousactivity
-	 */
-	public final void setWorkflowActivityRecord_PreviousActivity(system.proxies.WorkflowActivityRecord workflowactivityrecord_previousactivity)
-	{
-		setWorkflowActivityRecord_PreviousActivity(getContext(), workflowactivityrecord_previousactivity);
-	}
-
-	/**
-	 * Set value of WorkflowActivityRecord_PreviousActivity
-	 * @param context
-	 * @param workflowactivityrecord_previousactivity
-	 */
-	public final void setWorkflowActivityRecord_PreviousActivity(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.WorkflowActivityRecord workflowactivityrecord_previousactivity)
-	{
-		if (workflowactivityrecord_previousactivity == null) {
-			getMendixObject().setValue(context, MemberNames.WorkflowActivityRecord_PreviousActivity.toString(), null);
-		} else {
-			getMendixObject().setValue(context, MemberNames.WorkflowActivityRecord_PreviousActivity.toString(), workflowactivityrecord_previousactivity.getMendixObject().getId());
-		}
-	}
-
-	/**
-	 * @throws com.mendix.core.CoreException
 	 * @return value of WorkflowActivityRecord_Actor
 	 */
 	public final system.proxies.User getWorkflowActivityRecord_Actor() throws com.mendix.core.CoreException
@@ -1124,6 +1115,100 @@ public class WorkflowActivityRecord implements com.mendix.systemwideinterfaces.c
 			.collect(java.util.stream.Collectors.toList());
 		
 		getMendixObject().setValue(context, MemberNames.WorkflowActivityRecord_TaskTargetedGroups.toString(), identifiers);
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of WorkflowActivityRecord_WorkflowSubProcessDefinition
+	 */
+	public final system.proxies.WorkflowSubProcessDefinition getWorkflowActivityRecord_WorkflowSubProcessDefinition() throws com.mendix.core.CoreException
+	{
+		return getWorkflowActivityRecord_WorkflowSubProcessDefinition(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of WorkflowActivityRecord_WorkflowSubProcessDefinition
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final system.proxies.WorkflowSubProcessDefinition getWorkflowActivityRecord_WorkflowSubProcessDefinition(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		system.proxies.WorkflowSubProcessDefinition result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.WorkflowActivityRecord_WorkflowSubProcessDefinition.toString());
+		if (identifier != null) {
+			result = system.proxies.WorkflowSubProcessDefinition.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of WorkflowActivityRecord_WorkflowSubProcessDefinition
+	 * @param workflowactivityrecord_workflowsubprocessdefinition
+	 */
+	public final void setWorkflowActivityRecord_WorkflowSubProcessDefinition(system.proxies.WorkflowSubProcessDefinition workflowactivityrecord_workflowsubprocessdefinition)
+	{
+		setWorkflowActivityRecord_WorkflowSubProcessDefinition(getContext(), workflowactivityrecord_workflowsubprocessdefinition);
+	}
+
+	/**
+	 * Set value of WorkflowActivityRecord_WorkflowSubProcessDefinition
+	 * @param context
+	 * @param workflowactivityrecord_workflowsubprocessdefinition
+	 */
+	public final void setWorkflowActivityRecord_WorkflowSubProcessDefinition(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.WorkflowSubProcessDefinition workflowactivityrecord_workflowsubprocessdefinition)
+	{
+		if (workflowactivityrecord_workflowsubprocessdefinition == null) {
+			getMendixObject().setValue(context, MemberNames.WorkflowActivityRecord_WorkflowSubProcessDefinition.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.WorkflowActivityRecord_WorkflowSubProcessDefinition.toString(), workflowactivityrecord_workflowsubprocessdefinition.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of WorkflowActivityRecord_WorkflowSubProcess
+	 */
+	public final system.proxies.WorkflowSubProcess getWorkflowActivityRecord_WorkflowSubProcess() throws com.mendix.core.CoreException
+	{
+		return getWorkflowActivityRecord_WorkflowSubProcess(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of WorkflowActivityRecord_WorkflowSubProcess
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final system.proxies.WorkflowSubProcess getWorkflowActivityRecord_WorkflowSubProcess(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		system.proxies.WorkflowSubProcess result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.WorkflowActivityRecord_WorkflowSubProcess.toString());
+		if (identifier != null) {
+			result = system.proxies.WorkflowSubProcess.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of WorkflowActivityRecord_WorkflowSubProcess
+	 * @param workflowactivityrecord_workflowsubprocess
+	 */
+	public final void setWorkflowActivityRecord_WorkflowSubProcess(system.proxies.WorkflowSubProcess workflowactivityrecord_workflowsubprocess)
+	{
+		setWorkflowActivityRecord_WorkflowSubProcess(getContext(), workflowactivityrecord_workflowsubprocess);
+	}
+
+	/**
+	 * Set value of WorkflowActivityRecord_WorkflowSubProcess
+	 * @param context
+	 * @param workflowactivityrecord_workflowsubprocess
+	 */
+	public final void setWorkflowActivityRecord_WorkflowSubProcess(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.WorkflowSubProcess workflowactivityrecord_workflowsubprocess)
+	{
+		if (workflowactivityrecord_workflowsubprocess == null) {
+			getMendixObject().setValue(context, MemberNames.WorkflowActivityRecord_WorkflowSubProcess.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.WorkflowActivityRecord_WorkflowSubProcess.toString(), workflowactivityrecord_workflowsubprocess.getMendixObject().getId());
+		}
 	}
 
 	@java.lang.Override

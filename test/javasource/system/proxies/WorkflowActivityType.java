@@ -17,11 +17,17 @@ public enum WorkflowActivityType
 	CallWorkflow("479e21d4-8fca-4579-a174-db047d050f63"),
 	JumpTo("71ea426d-bc32-4fef-b815-6cc23d1c34a5"),
 	MultiInputUserTask("bc7c50d2-85d5-452a-9aca-d47eeff6bc4c"),
+	Notification("14d8418d-474e-45d0-b59b-97339bfb74be"),
 	WaitForNotification("abb0f497-cced-4365-a206-0de3668a2e05"),
 	WaitForTimer("8e0b84c7-1b56-4d53-92ac-784990877ba7"),
 	EndOfBoundaryEventPath("363dfddc-69cb-41cd-af71-a8b0d0b324e8"),
 	NonInterruptingTimerEvent("a40a215e-3540-4a3c-8633-8de4e88999bf"),
-	InterruptingTimerEvent("28780d21-22b2-4880-b559-35348cdee5af");
+	InterruptingTimerEvent("28780d21-22b2-4880-b559-35348cdee5af"),
+	NonInterruptingNotificationEventSubProcessStart("6c366462-10ce-4ec7-b308-8ce9827ed755"),
+	AIAgentTask("2fa288dd-aaf1-4657-ac4f-4aab201333b8"),
+	InterruptingNotificationEventSubProcessStart("54486bf1-eac4-471c-8227-6c28006dfffa"),
+	NonInterruptingNotificationEvent("0942261d-746b-49f1-bcfe-89370411f3b7"),
+	InterruptingNotificationEvent("8115b043-b231-4070-bcad-05ffbe759046");
 
 	private final java.lang.String i18nCaptionKey;
 	

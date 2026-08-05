@@ -23,7 +23,8 @@ public class WorkflowCurrentActivity implements com.mendix.systemwideinterfaces.
 		Action("Action"),
 		WorkflowCurrentActivity_ActivityDetails("System.WorkflowCurrentActivity_ActivityDetails"),
 		WorkflowCurrentActivity_ApplicableTargets("System.WorkflowCurrentActivity_ApplicableTargets"),
-		WorkflowCurrentActivity_JumpToTarget("System.WorkflowCurrentActivity_JumpToTarget");
+		WorkflowCurrentActivity_JumpToTarget("System.WorkflowCurrentActivity_JumpToTarget"),
+		WorkflowCurrentActivity_WorkflowSubProcess("System.WorkflowCurrentActivity_WorkflowSubProcess");
 
 		private final java.lang.String metaName;
 
@@ -263,6 +264,53 @@ public class WorkflowCurrentActivity implements com.mendix.systemwideinterfaces.
 			getMendixObject().setValue(context, MemberNames.WorkflowCurrentActivity_JumpToTarget.toString(), null);
 		} else {
 			getMendixObject().setValue(context, MemberNames.WorkflowCurrentActivity_JumpToTarget.toString(), workflowcurrentactivity_jumptotarget.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of WorkflowCurrentActivity_WorkflowSubProcess
+	 */
+	public final system.proxies.WorkflowSubProcess getWorkflowCurrentActivity_WorkflowSubProcess() throws com.mendix.core.CoreException
+	{
+		return getWorkflowCurrentActivity_WorkflowSubProcess(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of WorkflowCurrentActivity_WorkflowSubProcess
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final system.proxies.WorkflowSubProcess getWorkflowCurrentActivity_WorkflowSubProcess(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		system.proxies.WorkflowSubProcess result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.WorkflowCurrentActivity_WorkflowSubProcess.toString());
+		if (identifier != null) {
+			result = system.proxies.WorkflowSubProcess.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of WorkflowCurrentActivity_WorkflowSubProcess
+	 * @param workflowcurrentactivity_workflowsubprocess
+	 */
+	public final void setWorkflowCurrentActivity_WorkflowSubProcess(system.proxies.WorkflowSubProcess workflowcurrentactivity_workflowsubprocess)
+	{
+		setWorkflowCurrentActivity_WorkflowSubProcess(getContext(), workflowcurrentactivity_workflowsubprocess);
+	}
+
+	/**
+	 * Set value of WorkflowCurrentActivity_WorkflowSubProcess
+	 * @param context
+	 * @param workflowcurrentactivity_workflowsubprocess
+	 */
+	public final void setWorkflowCurrentActivity_WorkflowSubProcess(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.WorkflowSubProcess workflowcurrentactivity_workflowsubprocess)
+	{
+		if (workflowcurrentactivity_workflowsubprocess == null) {
+			getMendixObject().setValue(context, MemberNames.WorkflowCurrentActivity_WorkflowSubProcess.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.WorkflowCurrentActivity_WorkflowSubProcess.toString(), workflowcurrentactivity_workflowsubprocess.getMendixObject().getId());
 		}
 	}
 
